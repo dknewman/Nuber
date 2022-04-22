@@ -8,19 +8,6 @@
 import Foundation
 import CoreLocation
 
-struct LocationAddress {
-    var location: CLLocation
-    var city: String?
-    var country: String?
-    var address: String?
-    
-    init(location: CLLocation){
-        self.location = location
-    }
-}
-
-
-
 typealias handler = () -> ()?
 
 class LocationManager: NSObject {

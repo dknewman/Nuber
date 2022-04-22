@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0479FCF2812E0F3006A39D5 /* LocationAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0479FCE2812E0F3006A39D5 /* LocationAddress.swift */; };
 		F0A9D7A52811E2730042146A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A9D7A42811E2730042146A /* LocationManager.swift */; };
 		F0FBAF43280F51B90076CA82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBAF42280F51B90076CA82 /* AppDelegate.swift */; };
 		F0FBAF45280F51B90076CA82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBAF44280F51B90076CA82 /* SceneDelegate.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F0479FCE2812E0F3006A39D5 /* LocationAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAddress.swift; sourceTree = "<group>"; };
 		F0A9D7A42811E2730042146A /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F0FBAF3F280F51B90076CA82 /* NUber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NUber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0FBAF42280F51B90076CA82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		F0A9D7A62811EB230042146A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F0479FCE2812E0F3006A39D5 /* LocationAddress.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0479FCF2812E0F3006A39D5 /* LocationAddress.swift in Sources */,
 				F0A9D7A52811E2730042146A /* LocationManager.swift in Sources */,
 				F0FBAF47280F51B90076CA82 /* ViewController.swift in Sources */,
 				F0FBAF43280F51B90076CA82 /* AppDelegate.swift in Sources */,
