@@ -7,11 +7,12 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 typealias handler = () -> ()?
 
 class LocationManager: NSObject {
-   
+    
     public static let shared = LocationManager()
     
     var locationUpdated: handler?
@@ -33,14 +34,17 @@ class LocationManager: NSObject {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
     }
+    
+    
 }
+
+
+
 
 extension LocationManager: CLLocationManagerDelegate{
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let lastLocation = locations.last {
-//            print("Lat : \(lastLocation.coordinate.latitude) \nLng : \(lastLocation.coordinate.longitude)")
-//        }
+        
         guard let firstLocation = locations.first else {return}
         
         if CLLocationCoordinate2DIsValid(firstLocation.coordinate){
@@ -50,6 +54,32 @@ extension LocationManager: CLLocationManagerDelegate{
             }
             
         }
+    }
+    
+    func locationManager (_ manager: CLLocationManager,
+                                     didChangeAuthorization status: CLAuthorizationStatus) {   switch status {
+    case .restricted, .denied:
+        // Disable your app's location features
+        print("You have denied Nubers location permissions. Please go to settings to allow it ")
+        
+        break
+        
+    case .authorizedWhenInUse:
+        // Enable your app's location features.
+        break
+        
+    case .authorizedAlways:
+        // Enable or prepare your app's location features that can run any time.
+        break
+        
+    case .notDetermined:
+        break
+    @unknown default:
+        
+        print("Error")
+        
+        }
+        
     }
     
 }

@@ -13,6 +13,7 @@ struct LocationAddress {
     var city: String?
     var country: String?
     var address: String?
+    var state: String?
     
     init(location: CLLocation){
         self.location = location
