@@ -26,18 +26,27 @@ class MapViewController: UIViewController {
         return anno
     }()
     
+    private let menuButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = 25
+        button.backgroundColor = .secondarySystemBackground
+        button.setTitle("M", for: .normal)
+        button.setTitleColor(.gray, for: .normal)
+        button.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
         view.addSubview(map)
-        
+        view.addSubview(menuButton)
+        menuButton.translatesAutoresizingMaskIntoConstraints = false
+        setupLayout()
         DispatchQueue.main.async {
             self.map.addAnnotation(self.annotation)
-            self.setUpFloatingPanel()
-
         }
-        
+
         LocationManager.shared.startLocationUpdate{ () -> ()? in
             self.getLocation()
         }
@@ -67,6 +76,11 @@ class MapViewController: UIViewController {
         }
     }
     
+    @objc
+    func menuButtonPressed(){
+        print("Button Tapped!")
+    }
+    
     func setUpFloatingPanel(){
         
         fpc = FloatingPanelController()
@@ -76,5 +90,21 @@ class MapViewController: UIViewController {
         fpc.contentMode = .fitToBounds
         fpc.layout = MyFloatingPanelLayout()
         fpc.move(to: .tip, animated: false)
+    }
+    
+    func setupLayout(){
+        self.setUpFloatingPanel()
+
+        let padding: CGFloat = 10
+        let safeArea = self.view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            menuButton.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: padding),
+            menuButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            menuButton.heightAnchor.constraint(equalToConstant: 50),
+            menuButton.widthAnchor.constraint(equalToConstant: 50)
+
+        ])
+        
+        
     }
 }
